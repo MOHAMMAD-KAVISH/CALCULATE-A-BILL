@@ -1,0 +1,29 @@
+class store:
+    item_code=[]
+    price_=[]
+    def get_data(self):
+        for i in range(5):
+            self.item_code.append(int(input("Enter the code of item: ")))
+            self.price_.append(int(input('Enter the price: ')))
+    def display_data(self):
+        print("ITEM CODE \t PRICE")
+        for i in range(5):
+            print(self.item_code[i],"\t\t",self.price_[i])
+    def calculate_bill(self,quant):
+        total_amount=0
+        for i in range(5):
+            total_amount=total_amount+self.price_[i]*quant[i]
+        print("************BILL************")
+        print('ITEM \t PRICE \t QUANTITY \t SUBTOTAL')
+        for i in range(5):
+            print(self.item_code[i],"\t",self.price_[i],"\t",quant[i],"\t\t",quant[i]*self.price_[i])
+        print("****************************")
+        print("Total =",total_amount)
+s=store()
+s.get_data()
+s.display_data()
+q=[]
+print("Enter the quantity of each item: ")
+for i in range(5):
+    q.append(int(input()))
+s.calculate_bill(q)
